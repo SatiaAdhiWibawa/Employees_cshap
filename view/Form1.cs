@@ -141,7 +141,22 @@ namespace Employees
 
         private void button3_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DialogResult dialogResult1 = MessageBox.Show("Yang bener? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult1 == DialogResult.Yes)
+                {
+                    // Memanggil Class EmployeeController
+                    EmployeeController ec = new EmployeeController();
 
+                    // Memanggil Method Destroy untuk delete data ke database
+                    ec.Destroy(id);
+
+                    // Memanggil Method Show
+                    Show();
+                }
+            }
         }
 
         private void Name_TextChanged(object sender, EventArgs e)
@@ -193,6 +208,12 @@ namespace Employees
 
             // Memanggil Method Show
             Show();
+        }
+
+        private void SearchData_TextChanged(object sender, EventArgs e)
+        {
+            // Menampilkan data dari database ke DataGridView
+            DataTable.DataSource = connection.ShowData("SELECT * FROM employees WHERE " + "id_card LIKE '%" + SearchData.Text + "%' OR name LIKE '%" + SearchData.Text + "%' OR position LIKE '%" + SearchData.Text + "%' OR address LIKE '%" + SearchData.Text + "%' OR email LIKE '%" + SearchData.Text + "%' OR phone_number LIKE '%" + SearchData.Text + "%' ");
         }
     }
 }

@@ -56,5 +56,28 @@ namespace Employees.controller
 
             return status;
         }
+
+
+        // Method Delete Data
+        public bool Destroy(string id)
+        {
+            Boolean status = false;
+            try
+            {
+                db.OpenConnection();
+                db.ExecuteQuery("DELETE FROM employees WHERE id='" + id + "'");
+
+                status = true;
+
+                MessageBox.Show("Data has been deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                db.ClosedConnection();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Internal Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return status;
+        }
     }
 }

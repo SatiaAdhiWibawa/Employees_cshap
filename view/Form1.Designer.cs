@@ -47,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Btn_Search = new System.Windows.Forms.Button();
             this.SearchData = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -241,32 +240,23 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.Btn_Search);
             this.groupBox3.Controls.Add(this.SearchData);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(754, 247);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(406, 121);
+            this.groupBox3.Size = new System.Drawing.Size(394, 101);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Form Search";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // Btn_Search
-            // 
-            this.Btn_Search.Location = new System.Drawing.Point(253, 69);
-            this.Btn_Search.Name = "Btn_Search";
-            this.Btn_Search.Size = new System.Drawing.Size(141, 40);
-            this.Btn_Search.TabIndex = 15;
-            this.Btn_Search.Text = "Search Employee";
-            this.Btn_Search.UseVisualStyleBackColor = true;
-            // 
             // SearchData
             // 
             this.SearchData.Location = new System.Drawing.Point(109, 29);
             this.SearchData.Name = "SearchData";
-            this.SearchData.Size = new System.Drawing.Size(285, 20);
+            this.SearchData.Size = new System.Drawing.Size(247, 20);
             this.SearchData.TabIndex = 13;
+            this.SearchData.TextChanged += new System.EventHandler(this.SearchData_TextChanged);
             // 
             // label7
             // 
@@ -319,7 +309,6 @@
         private System.Windows.Forms.DataGridView DataTable;
         private System.Windows.Forms.Button Btn_Delete;
         private System.Windows.Forms.Button Btn_Update;
-        private System.Windows.Forms.Button Btn_Search;
         private System.Windows.Forms.Button Btn_Insert;
     }
 }
