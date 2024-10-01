@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Employees.model
+{
+    internal class EmployeeModel
+    {
+
+        string id_card, name, position, address, email, phone_number;
+
+        public EmployeeModel()
+        {
+        }
+
+        public EmployeeModel(string id_card, string name, string position, string address, string email, string phone_number)
+        {
+            this.Id_card      = id_card;
+            this.Name         = name;
+            this.Position     = position;
+            this.Address      = address;
+            this.Email        = email;
+            this.Phone_number = phone_number;
+        }
+
+        public string Id_card { get => id_card; set => id_card = value; }
+        public string Name { get => name; set => name = value; }
+        public string Position { get => position; set => position = value; }
+        public string Address { get => address; set => address = value; }
+        public string Email { get => email; set => email = value; }
+        public string Phone_number { get => phone_number; set => phone_number = value; }
+    }
+}
