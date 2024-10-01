@@ -44,6 +44,13 @@ namespace Employees
         {
             // Memangil Method Show
             Show();
+
+            // List posision
+            // Position.Items.Add("Backend Developer");
+            // Position.Items.Add("Frontend Developer");
+            // Position.Items.Add("UI/UX Designer");
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)

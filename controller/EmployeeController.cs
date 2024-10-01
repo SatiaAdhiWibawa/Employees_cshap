@@ -33,5 +33,28 @@ namespace Employees.controller
 
             return status;
         }
+
+
+        // Method Update Data
+        public bool Update(EmployeeModel employee, string id)
+        {
+            Boolean status = false;
+            try
+            {
+                db.OpenConnection();
+                db.ExecuteQuery("UPDATE employees SET id_card = '" + employee.Id_card + "', " + "name = '" + employee.Name + "', " + "position = '" + employee.Position + "', " + "address = '" + employee.Address + "', " + "email = '" +employee.Email + "', " + "phone_number = '" + employee.Phone_number + "' WHERE id='" + id + "' ");
+
+                status = true;
+
+                MessageBox.Show("Data has been updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                db.ClosedConnection();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Internal Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return status;
+        }
     }
 }
