@@ -115,7 +115,7 @@ namespace Employees
             employee.Email        = Email.Text;
             employee.Phone_number = Phone.Text;
 
-            // Memanggil Method Insert
+            // Memanggil Method Insert untuk insert data ke database
             ec.Insert(employee);
 
             // Buat agar form input kosong setelah di submit
