@@ -75,6 +75,7 @@
             this.DataTable.Name = "DataTable";
             this.DataTable.Size = new System.Drawing.Size(1136, 189);
             this.DataTable.TabIndex = 0;
+            this.DataTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataTable_CellClick);
             // 
             // groupBox2
             // 
@@ -119,6 +120,7 @@
             this.Btn_Update.TabIndex = 13;
             this.Btn_Update.Text = "Update";
             this.Btn_Update.UseVisualStyleBackColor = true;
+            this.Btn_Update.Click += new System.EventHandler(this.Btn_Update_Click);
             // 
             // Btn_Insert
             // 
@@ -283,7 +285,6 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            //this.Name = "Form1";
             this.Text = "Employees Data";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

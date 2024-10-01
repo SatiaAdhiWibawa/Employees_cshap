@@ -18,6 +18,7 @@ namespace Employees
         // Memanggil Class
         Connection connection  = new Connection(); // memanggil Class Connection
         EmployeeModel employee = new EmployeeModel(); // memanggil Class EmployeeModel
+        string id;
 
         // Method untuk menampilkan data
         public void Show() 
@@ -146,6 +147,52 @@ namespace Employees
         private void Name_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DataTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Memilih data yang akan di update
+            id            = DataTable.Rows[e.RowIndex].Cells[0].Value.ToString();
+            IDCard.Text   = DataTable.Rows[e.RowIndex].Cells[1].Value.ToString();
+            Name.Text     = DataTable.Rows[e.RowIndex].Cells[2].Value.ToString();
+            Position.Text = DataTable.Rows[e.RowIndex].Cells[3].Value.ToString();
+            Address.Text  = DataTable.Rows[e.RowIndex].Cells[4].Value.ToString();
+            Email.Text    = DataTable.Rows[e.RowIndex].Cells[5].Value.ToString();
+            Phone.Text    = DataTable.Rows[e.RowIndex].Cells[6].Value.ToString();
+        }
+
+        private void Btn_Update_Click(object sender, EventArgs e)
+        {
+            // Validation input
+            if (Name.Text == "" || IDCard.Text == "" || Position.SelectedIndex == -1 || Address.Text == "" || Email.Text == "" || Phone.Text == "")
+            {
+                MessageBox.Show("Please fill in the form", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+            // Memanggil Class EmployeeController
+            EmployeeController ec = new EmployeeController();
+
+            employee.Id_card      = IDCard.Text;
+            employee.Name         = Name.Text;
+            employee.Position     = Position.Text;
+            employee.Address      = Address.Text;
+            employee.Email        = Email.Text;
+            employee.Phone_number = Phone.Text;
+
+            // Memanggil Method Update untuk update data ke database
+            ec.Update(employee, id);
+
+            // Buat agar form input kosong setelah di submit
+            IDCard.Text = "";
+            Name.Text = "";
+            Position.SelectedIndex = -1;
+            Address.Text = "";
+            Email.Text = "";
+            Phone.Text = "";
+
+            // Memanggil Method Show
+            Show();
         }
     }
 }
